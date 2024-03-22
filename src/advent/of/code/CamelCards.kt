@@ -68,20 +68,20 @@ private fun rankHand1(hand: String): Int {
 }
 
 private fun isFiveOfAKind2(hand: String): Boolean {
-    val handSet = hand.toSet()
-    if (handSet.size == 1 || (handSet.size == 2 && handSet.contains('J'))) {
+    val cardSet = hand.toSet()
+    if (cardSet.size == 1 || (cardSet.size == 2 && cardSet.contains('J'))) {
         return true
     }
     return false
 }
 
 private fun isFourOfAKind2(hand: String): Boolean {
-    val handMap = hand.toList().groupingBy { it }.eachCount()
-    if (handMap.values.contains(4)) {
+    val cardMap = hand.toList().groupingBy { it }.eachCount()
+    if (cardMap.values.contains(4)) {
         return true
-    } else if (handMap.values.contains(3) && handMap['J'] == 1) {
+    } else if (cardMap.values.contains(3) && cardMap['J'] == 1) {
         return true
-    } else if (handMap.size == 3 && handMap['J'] in 2..3) {
+    } else if (cardMap.size == 3 && cardMap['J'] in 2..3) {
         return true
     }
     return false
